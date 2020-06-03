@@ -62,7 +62,7 @@ recaptcha_siteverify_api: https://www.google.com/recaptcha/api/siteverify
 turn_user_lifetime: 1h
 turn_allow_guests: true
 enable_registration: true
-registration_shared_secret: sASHy2Hn2+rj:G73BN.mVMrNokCU-fU-vBxE3L&E6OCNpZcjkb
+registration_shared_secret: !secret matrix_registration_shared_secret
 bcrypt_rounds: 12
 allow_guest_access: false
 trusted_third_party_id_servers:
