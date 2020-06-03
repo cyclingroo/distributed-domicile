@@ -79,7 +79,7 @@ room_invite_state_types:
 - m.room.name
 app_service_config_files: []
 track_appservice_user_ips: false
-macaroon_secret_key: dADfJEgAMdLU=zgxuOv6zChPN++sXaudfqUaHit9BMDEf4pPn7
+macaroon_secret_key: !secret macaroon_secret_key
 expire_access_token: false
 form_secret: '*7+5&rW_tmdU@~aYC~6yS@R;a0ndOZHF#lgeJcbN;JkQXijX:t'
 signing_key_path: /data/matrix/hassio.lobostrategies.duckdns.org.signing.key
