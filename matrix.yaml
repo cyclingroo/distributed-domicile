@@ -90,7 +90,7 @@ perspectives:
     matrix.org:
       verify_keys:
         ed25519:auto:
-          key: Noi6WqcDj0QmPxCNQqgezwTlBKrfqehY1u2FyWP9uYw
+          key: !secret matrix_key
 password_config:
   enabled: true
 enable_group_creation: false
