@@ -1,0 +1,24 @@
+# Ignore everything
+*
+# Whitelist files/folders. These will not be ignored.
+!*.yaml
+!.gitignore
+!*.md
+!*/*.yaml
+
+# Ignore folders.
+.storage
+.cloud
+.google.token
+
+# Ensure these files are ignored, otherwise your secret data/credentials will leak.
+ip_bans.yaml
+secrets.yaml
+*.log
+*.xml
+*.db
+*.sqlite
+.storage/
+OZW_Log.txt
+harmony_harmony_hub.conf
+known_devices.yaml

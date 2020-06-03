@@ -1,0 +1,5 @@
+# Pi-hole 
+  - host: 10.42.222.22
+    ssl: false
+    api_key: !secret pi_hole_api_key
+

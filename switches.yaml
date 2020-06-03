@@ -1,0 +1,9 @@
+  - platform: tplink
+    name: "Chair Lamp"
+    host: 10.42.222.94
+  - platform: tplink
+    name: "Sofa Lamp"
+    host: 10.42.222.2
+  - platform: tplink
+    name: "Guest Bedroom Lamp"
+    host: 10.42.222.3

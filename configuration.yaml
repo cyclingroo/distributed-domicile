@@ -1,0 +1,68 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Elgin Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 42.031996
+  longitude: -88.271844
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 790
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/Chicago
+  # Customization file
+  customize: !include customize.yaml
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Configure discovery to run for Home Assistant
+discovery:
+  ignore:
+  - homekit
+
+# Configure device trackers
+device_tracker: !include device_tracker.yaml
+
+# Configure InfluxDB
+influxdb: !include influxdb.yaml
+
+# Configure web services
+http: !include http.yaml
+
+# Configure electrical switches
+# switch: !include switches.yaml
+
+# Configure Thermostat
+ecobee: !include ecobee.yaml
+
+# Configure Speedtest
+speedtestdotnet:
+
+# Sensors
+sensor: !include sensors.yaml
+
+# Text to speech
+tts:
+  - platform: google_translate
+    service_name: google_say
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+
+frontend:
+  themes: !include_dir_merge_named themes
+#  themes: !include themes.yaml
+
+hacs:
+  token: !secret hacs_token
+  appdaemon: True
+  python_script: True
+  theme: True
+
+camera:
+  - platform: nwsradar
+    station: LOT
+
+pi_hole: !include pihole.yaml

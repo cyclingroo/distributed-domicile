@@ -1,0 +1,54 @@
+- id: person_logging
+  alias: Log person changes
+  initial_state: 'on'
+  trigger:
+  - platform: state
+    entity_id:
+    - person.cindyjo
+    - person.lbolsen
+  condition:
+  - condition: template
+    value_template: '{{ trigger.from_state.state != trigger.to_state.state }}'
+  action:
+  - service: logbook.log
+    data_template:
+      name: 'Person: '
+      message: '{{trigger.to_state.name}} changed from {{trigger.from_state.state}}
+        to {{trigger.to_state.state}} by {{ trigger.to_state.attributes.source }}'
+- id: all_lamps_on_dusk
+  alias: All lamp switches on before sunset
+  trigger:
+  - event: sunset
+    offset: -01:30:00
+    platform: sun
+  action:
+  - data:
+      entity_id: switch.chair_lamp
+    entity_id: switch.chair_lamp
+    service: homeassistant.turn_on
+  - data:
+      entity_id: switch.guest_bedroom_lamp
+    entity_id: switch.guest_bedroom_lamp
+    service: homeassistant.turn_on
+  - data:
+      entity_id: switch.sofa_lamp
+    entity_id: switch.sofa_lamp
+    service: homeassistant.turn_on
+- id: all_lamps_off_bedtime
+  alias: All lamp switches off at bedtime
+  trigger:
+  - at: '22:30'
+    platform: time
+  action:
+  - data:
+      entity_id: switch.chair_lamp
+    entity_id: switch.chair_lamp
+    service: homeassistant.turn_off
+  - data:
+      entity_id: switch.guest_bedroom_lamp
+    entity_id: switch.guest_bedroom_lamp
+    service: homeassistant.turn_off
+  - data:
+      entity_id: switch.sofa_lamp
+    entity_id: switch.sofa_lamp
+    service: homeassistant.turn_off

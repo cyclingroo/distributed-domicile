@@ -1,0 +1,103 @@
+# Be aware that this file contains options that could potentially break the add-on.
+# Make sure you know what you are doing before editing this file!
+server_name: hassio.lobostrategies.duckdns.org
+pid_file: /homeserver.pid
+soft_file_limit: 0
+use_presence: true
+listeners:
+- port: 8008
+  tls: true
+  bind_addresses:
+  - ::1
+  - 127.0.0.1
+  type: http
+  x_forwarded: true
+  resources:
+  - names:
+    - client
+    - federation
+    compress: false
+acme: null
+tls_fingerprints: []
+database:
+  name: sqlite3
+  args:
+    database: /share/matrix/matrix.db
+event_cache_size: 10K
+log_config: /data/matrix/hassio.lobostrategies.duckdns.org.log.config
+rc_messages_per_second: 0.2
+rc_message_burst_count: 10
+federation_rc_window_size: 1000
+federation_rc_sleep_limit: 10
+federation_rc_sleep_delay: 500
+federation_rc_reject_limit: 50
+federation_rc_concurrent: 3
+media_store_path: /share/matrix/media
+uploads_path: /share/matrix/uploads
+max_upload_size: 200M
+max_image_pixels: 32M
+dynamic_thumbnails: false
+thumbnail_sizes:
+- width: 32
+  height: 32
+  method: crop
+- width: 96
+  height: 96
+  method: crop
+- width: 320
+  height: 240
+  method: scale
+- width: 640
+  height: 480
+  method: scale
+- width: 800
+  height: 600
+  method: scale
+url_preview_enabled: false
+max_spider_size: 10M
+recaptcha_public_key: YOUR_PUBLIC_KEY
+recaptcha_private_key: YOUR_PRIVATE_KEY
+enable_registration_captcha: false
+recaptcha_siteverify_api: https://www.google.com/recaptcha/api/siteverify
+turn_user_lifetime: 1h
+turn_allow_guests: true
+enable_registration: true
+registration_shared_secret: sASHy2Hn2+rj:G73BN.mVMrNokCU-fU-vBxE3L&E6OCNpZcjkb
+bcrypt_rounds: 12
+allow_guest_access: false
+trusted_third_party_id_servers:
+- matrix.org
+- vector.im
+autocreate_auto_join_rooms: true
+enable_metrics: false
+report_stats: false
+room_invite_state_types:
+- m.room.join_rules
+- m.room.canonical_alias
+- m.room.avatar
+- m.room.encryption
+- m.room.name
+app_service_config_files: []
+track_appservice_user_ips: false
+macaroon_secret_key: dADfJEgAMdLU=zgxuOv6zChPN++sXaudfqUaHit9BMDEf4pPn7
+expire_access_token: false
+form_secret: '*7+5&rW_tmdU@~aYC~6yS@R;a0ndOZHF#lgeJcbN;JkQXijX:t'
+signing_key_path: /data/matrix/hassio.lobostrategies.duckdns.org.signing.key
+old_signing_keys: {}
+key_refresh_interval: 1d
+perspectives:
+  servers:
+    matrix.org:
+      verify_keys:
+        ed25519:auto:
+          key: Noi6WqcDj0QmPxCNQqgezwTlBKrfqehY1u2FyWP9uYw
+password_config:
+  enabled: true
+enable_group_creation: false
+alias_creation_rules:
+- user_id: '*'
+  alias: '*'
+  action: allow
+no_tls: false
+tls_certificate_path: /ssl/fullchain.pem
+tls_private_key_path: /ssl/privkey.pem
