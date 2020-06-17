@@ -1,4 +1,4 @@
-# Lobostrategies Home Assistant Respositor: distributed-domicile
+# Lobostrategies HA Respository: distributed-domicile
 Lobostrategies Home Assistant Services
 
 Load and update configuration files for Home Assistant from my Git repository.
